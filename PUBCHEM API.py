@@ -5,7 +5,7 @@ import time
 
 pd.set_option('display.max_columns', None)
 
-# Lista de SMILES de ejemplo
+#Your list
 smiles= ["CC(=O)OC1=CC=CC=C1C(=O)O"]
 
 def get_cid(smiles):
@@ -41,7 +41,6 @@ def get_activity_for_cid(cid):
         results = []
         for row in rows:
             cells = row.get("Cell", [])
-            # Asumiendo el orden de las columnas del endpoint assaysummary
             if len(cells) >= 11:
                 results.append({
                     "CID": cid,
