@@ -6,7 +6,7 @@ import time
 pd.set_option('display.max_columns', None)
 
 # Lista de SMILES de ejemplo
-smiles= ["CC(=O)OC1=CC=CC=C1C(=O)O", "CN1C=NC2=C1C(=O)N(C(=O)N2C)C"]
+smiles= ["CC(=O)OC1=CC=CC=C1C(=O)O"]
 
 def get_cid(smiles):
     try:
@@ -68,6 +68,7 @@ def get_activity_from_list(smiles_list):
         if cid:
             df = get_activity_for_cid(cid)
             if not df.empty:
+                df['SMILES'] = smi
                 all_results.append(df)
         time.sleep(0.5)
 
